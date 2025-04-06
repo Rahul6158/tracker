@@ -3,23 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="shortcut icon" href="logo.png" type="image/x-icon">
-  <title>Daily Tracker</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <title>GROWTH TRACKER</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     :root {
-      --primary: #4361ee;
-      --secondary: #3f37c9;
-      --accent: #4895ef;
-      --success: #4cc9f0;
-      --light: #f8f9fa;
-      --dark: #212529;
-      --gray: #6c757d;
-      --danger: #f72585;
-      --warning: #f8961e;
-      --info: #38b6ff;
-      --h3:darkblue;
+      --steel: #2c3e50;
+      --iron: #34495e;
+      --blood: #e74c3c;
+      --gold: #f1c40f;
+      --concrete: #95a5a6;
+      --emerald: #2ecc71;
+      --cloud: #ecf0f1;
+      --midnight: #1a1a1a;
     }
     
     * {
@@ -29,23 +25,24 @@
     }
     
     body {
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-      color: var(--dark);
+      font-family: 'Oswald', sans-serif;
+      background: linear-gradient(to right, var(--midnight), var(--steel));
+      color: var(--cloud);
       min-height: 100vh;
       padding: 20px;
       line-height: 1.6;
     }
     
     .container {
-      max-width: 800px;
+      max-width: 1000px;
       margin: 0 auto;
-      background: white;
-      border-radius: 16px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      background: rgba(44, 62, 80, 0.9);
+      border-radius: 10px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
       padding: 30px;
       position: relative;
       overflow: hidden;
+      border: 1px solid var(--gold);
     }
     
     .container::before {
@@ -54,55 +51,64 @@
       top: 0;
       left: 0;
       width: 100%;
-      height: 8px;
-      background: linear-gradient(90deg, var(--primary), var(--success));
+      height: 5px;
+      background: linear-gradient(90deg, var(--blood), var(--gold));
     }
     
     h1 {
       text-align: center;
       margin-bottom: 5px;
-      color: var(--primary);
-      font-weight: 700;
-      font-size: 2.2rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
+      color: var(--gold);
+      font-family: 'Bebas Neue', sans-serif;
+      font-weight: 400;
+      font-size: 3.5rem;
+      letter-spacing: 3px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+    
+    .subtitle {
+      text-align: center;
+      color: var(--concrete);
+      margin-bottom: 5px;
+      font-size: 1.2rem;
+      letter-spacing: 1px;
+    }
+    
+    .bible-verse {
+      text-align: center;
+      color: var(--gold);
+      font-style: italic;
+      margin-bottom: 20px;
+      font-size: 1.1rem;
+      padding: 0 10px;
     }
     
     #dateDisplay {
       text-align: center;
-      font-size: 1.1rem;
-      color: var(--gray);
+      font-size: 1.3rem;
+      color: var(--cloud);
       margin-bottom: 30px;
-      font-weight: 500;
+      font-weight: 600;
+      letter-spacing: 1px;
     }
     
     h2 {
-      border-bottom: 2px solid #eee;
-      padding-bottom: 8px;
+      padding: 10px 15px;
       margin: 30px 0 15px;
-      color: var(--h3);
+      color: var(--gold);
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.8rem;
+      letter-spacing: 2px;
+      background: rgba(52, 73, 94, 0.7);
+      border-left: 5px solid var(--blood);
+      border-radius: 5px;
+      cursor: pointer;
       display: flex;
       align-items: center;
-      gap: 10px;
-      cursor: pointer;
+      justify-content: space-between;
     }
-
-    h3 {
-        border-bottom: 2px solid #eee;
-        padding-bottom: 0px;
-        margin: 13px 0 15px;
-        color: var(--secondary);
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        cursor: pointer;
-      }
     
     h2 i {
-      font-size: 1.2rem;
-      color: var(--accent);
       transition: transform 0.3s ease;
     }
     
@@ -131,45 +137,47 @@
     .task {
       display: flex;
       align-items: center;
-      padding: 12px 15px;
-      background: white;
-      border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      padding: 15px;
+      background: rgba(52, 73, 94, 0.5);
+      border-radius: 8px;
       transition: all 0.3s ease;
       border-left: 4px solid transparent;
+      position: relative;
     }
     
     .task:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      background: rgba(52, 73, 94, 0.7);
     }
     
     .task.completed {
-      background-color: #f8f9fa;
-      border-left-color: var(--success);
+      background: rgba(46, 204, 113, 0.1);
+      border-left-color: var(--emerald);
     }
     
     .task.completed label {
-      color: var(--gray);
+      color: var(--cloud);
       text-decoration: line-through;
     }
     
     .task input[type="checkbox"] {
       appearance: none;
       -webkit-appearance: none;
-      width: 22px;
-      height: 22px;
-      border: 2px solid #ddd;
+      width: 24px;
+      height: 24px;
+      border: 2px solid var(--concrete);
       border-radius: 6px;
       margin-right: 15px;
       cursor: pointer;
       position: relative;
       transition: all 0.2s ease;
+      flex-shrink: 0;
     }
     
     .task input[type="checkbox"]:checked {
-      background-color: var(--success);
-      border-color: var(--success);
+      background-color: var(--emerald);
+      border-color: var(--emerald);
     }
     
     .task input[type="checkbox"]:checked::after {
@@ -178,7 +186,7 @@
       font-weight: 900;
       position: absolute;
       color: white;
-      font-size: 12px;
+      font-size: 14px;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
@@ -189,65 +197,108 @@
       cursor: pointer;
       font-weight: 500;
       transition: color 0.2s ease;
+      font-size: 1.1rem;
     }
     
-    .task .delete-task {
-      color: var(--gray);
-      cursor: pointer;
-      padding: 5px;
-      margin-left: 10px;
-      transition: all 0.2s ease;
+    .exercise-container {
+      display: flex;
+      flex-direction: column;
+      margin-top: 10px;
     }
     
-    .task .delete-task:hover {
-      color: var(--danger);
-      transform: scale(1.2);
+    .exercise-item {
+      display: flex;
+      align-items: center;
+      padding: 15px;
+      background: rgba(52, 73, 94, 0.5);
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      border-left: 4px solid transparent;
+    }
+    
+    .exercise-item.completed {
+      background: rgba(46, 204, 113, 0.1);
+      border-left-color: var(--emerald);
+    }
+    
+    .exercise-item.completed label {
+      color: var(--cloud);
+      text-decoration: line-through;
+    }
+    
+    .exercise-gif {
+      width: 100%;
+      max-width: 300px;
+      border-radius: 8px;
+      margin: 10px 0 15px 40px;
+      border: 2px solid var(--gold);
+    }
+    
+    .workout-content {
+      max-height: 500px;
+      overflow-y: auto;
+      padding-right: 10px;
+    }
+    
+    .workout-content::-webkit-scrollbar {
+      width: 6px;
+    }
+    
+    .workout-content::-webkit-scrollbar-track {
+      background: rgba(0, 0, 0, 0.1);
+      border-radius: 3px;
+    }
+    
+    .workout-content::-webkit-scrollbar-thumb {
+      background: var(--gold);
+      border-radius: 3px;
     }
     
     .progress-container {
       margin: 30px 0;
-      background: #f1f1f1;
+      background: rgba(0, 0, 0, 0.3);
       border-radius: 10px;
-      height: 10px;
+      height: 12px;
       overflow: hidden;
+      border: 1px solid var(--concrete);
     }
     
     .progress-bar {
       height: 100%;
-      background: linear-gradient(90deg, var(--primary), var(--success));
+      background: linear-gradient(90deg, var(--blood), var(--gold));
       border-radius: 10px;
       transition: width 0.5s ease;
       width: 0%;
+      box-shadow: 0 0 10px rgba(231, 76, 60, 0.5);
     }
     
     .progress-text {
       text-align: center;
-      margin-top: 5px;
-      font-size: 0.9rem;
-      color: var(--gray);
-      font-weight: 500;
+      margin-top: 10px;
+      font-size: 1.1rem;
+      color: var(--cloud);
+      font-weight: 600;
+      letter-spacing: 1px;
     }
     
-    .motivation, .quoteBox {
-      background: linear-gradient(135deg, #e0f7fa 0%, #b2ebf2 100%);
+    .motivation {
+      background: rgba(0, 0, 0, 0.3);
       padding: 20px;
-      border-radius: 12px;
+      border-radius: 8px;
       margin-top: 30px;
-      font-style: italic;
-      border-left: 5px solid var(--success);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      border-left: 5px solid var(--gold);
     }
     
     .motivation p {
       margin-bottom: 10px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
+      font-style: italic;
+      font-size: 1.1rem;
+      color: var(--cloud);
     }
     
     .motivation p i {
-      color: var(--primary);
-      font-size: 1.2rem;
+      color: var(--gold);
+      margin-right: 10px;
     }
     
     .reset-btn, .quote-btn, .add-task-btn {
@@ -255,30 +306,32 @@
       margin: 25px auto 10px;
       padding: 12px 25px;
       border: none;
-      border-radius: 8px;
+      border-radius: 6px;
       cursor: pointer;
       font-weight: 600;
       transition: all 0.3s ease;
       font-size: 1rem;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-family: 'Bebas Neue', sans-serif;
     }
     
     .quote-btn {
-      background-color: var(--success);
+      background-color: var(--blood);
       color: white;
       width: 100%;
       max-width: 300px;
     }
     
     .reset-btn {
-      background-color: var(--primary);
-      color: white;
+      background-color: var(--gold);
+      color: var(--steel);
       width: 100%;
       max-width: 250px;
     }
     
     .add-task-btn {
-      background-color: var(--accent);
+      background-color: var(--emerald);
       color: white;
       width: 100%;
       max-width: 250px;
@@ -286,34 +339,25 @@
     }
     
     .reset-btn:hover, .quote-btn:hover, .add-task-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
       opacity: 0.9;
     }
     
     .quote-btn:hover {
-      background-color: #3ab7d8;
+      background-color: #c0392b;
     }
     
     .reset-btn:hover {
-      background-color: #3a56ee;
+      background-color: #f39c12;
     }
     
     .add-task-btn:hover {
-      background-color: #3a7bef;
+      background-color: #27ae60;
     }
     
-    .quoteBox {
-      display: none;
-      text-align: center;
-      font-weight: 500;
-      font-size: 1.1rem;
-      color: var(--dark);
-    }
-    
-    .quoteBox i {
-      color: var(--primary);
-      margin-right: 8px;
+    .quote-transition {
+      transition: opacity 0.3s ease;
     }
     
     .add-task-container {
@@ -327,62 +371,45 @@
       padding: 12px 15px;
       border: 1px solid #ddd;
       border-radius: 8px;
-      font-family: 'Poppins', sans-serif;
+      font-family: 'Oswald', sans-serif;
       font-size: 1rem;
       transition: all 0.3s ease;
+      background: rgba(255, 255, 255, 0.9);
     }
     
     .add-task-input:focus {
       outline: none;
-      border-color: var(--accent);
-      box-shadow: 0 0 0 3px rgba(72, 149, 239, 0.2);
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(241, 196, 15, 0.2);
     }
     
     .task-limit {
       text-align: center;
-      color: var(--gray);
+      color: var(--concrete);
       font-size: 0.9rem;
       margin-top: 5px;
     }
     
     .task-limit.reached {
-      color: var(--danger);
+      color: var(--blood);
       font-weight: 500;
     }
-
-    a{
-        text-align: center; 
-        text-decoration:none; 
-        color:#3a56ee; 
-        margin-left:330px;
-        
-    }
     
-    /* Responsive design */
     @media (max-width: 768px) {
-
-        a{
-            text-align: center; 
-            text-decoration:none; 
-            color:#3a56ee; 
-            
-            margin-left: 300px;
-            
-        }
       .container {
         padding: 20px;
       }
       
       h1 {
-        font-size: 1.8rem;
+        font-size: 2.5rem;
       }
       
-      .task {
-        padding: 10px 12px;
+      .task, .exercise-item {
+        padding: 12px;
       }
       
-      .motivation, .quoteBox {
-        padding: 15px;
+      .task label, .exercise-item label {
+        font-size: 1rem;
       }
       
       .add-task-container {
@@ -391,14 +418,6 @@
     }
     
     @media (max-width: 480px) {
-        a{
-            text-align: center; 
-            text-decoration:none; 
-            color:#3a56ee; 
-            margin-left: 140px;
-            
-        }
-
       body {
         padding: 10px;
       }
@@ -409,30 +428,27 @@
       }
       
       h1 {
-        font-size: 1.5rem;
+        font-size: 2rem;
       }
       
       #dateDisplay {
-        font-size: 0.9rem;
-        font-style:var(--dark)
+        font-size: 1.1rem;
       }
       
       h2 {
-        font-size: 1.1rem;
-        margin: 20px 0 10px;
-      }
-      
-      .task label {
-        font-size: 0.9rem;
+        font-size: 1.4rem;
       }
       
       .reset-btn, .quote-btn, .add-task-btn {
         padding: 10px 20px;
         font-size: 0.9rem;
       }
+      
+      .exercise-gif {
+        margin-left: 20px;
+      }
     }
     
-    /* Animation */
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(10px); }
       to { opacity: 1; transform: translateY(0); }
@@ -442,7 +458,6 @@
       animation: fadeIn 0.5s ease forwards;
     }
     
-    /* Confetti effect */
     .confetti {
       position: fixed;
       width: 10px;
@@ -463,95 +478,160 @@
         opacity: 0;
       }
     }
-    
-    /* Checkbox sound indicator */
-    .sound-indicator {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: var(--light);
-      border-radius: 50%;
-      width: 50px;
-      height: 50px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      cursor: pointer;
-      z-index: 100;
-    }
-    
-    .sound-indicator i {
-      font-size: 1.5rem;
-      color: var(--primary);
-    }
-    
-    .sound-indicator.muted i.fa-volume-up {
-      display: none;
-    }
-    
-    .sound-indicator:not(.muted) i.fa-volume-mute {
-      display: none;
-    }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1><i class="fas fa-star"></i> SushuuVlogs Daily Tracker <i class="fas fa-star"></i></h1>
+    <h1>GROWTH TRACKER</h1>
+    <div class="bible-verse" id="bibleVerse"></div>
+    <div class="subtitle">FORGE YOUR BEST SELF</div>
     <div id="dateDisplay"></div>
-    <a href="saibaba.jpg">Baba🙏</a>
     
     <div class="progress-container">
       <div class="progress-bar" id="progressBar"></div>
     </div>
     <div class="progress-text" id="progressText">0% Complete</div>
     
-    <h2 class="collapsible-header" data-target="dailyWorks">
-      <i class="fas fa-chevron-down"></i> <i class="fas fa-briefcase"></i> Daily Works
+    <h2 class="collapsible-header" data-target="health">
+      <span><i class="fas fa-heartbeat"></i> HEALTH</span>
+      <i class="fas fa-chevron-down"></i>
     </h2>
-    <div class="collapsible-content" id="dailyWorks">
+    <div class="collapsible-content" id="health">
       <div class="task-list">
+        <div class="task" id="wakeUp">
+          <input type="checkbox" id="wakeUpCheck">
+          <label for="wakeUpCheck">Wake up before 6 AM</label>
+        </div>
         
-        <h3>Job Goals</h3>
-        <div class="task" id="task1">
-          <input type="checkbox" id="applyJobs">
-          <label for="applyJobs">Applied to at least 2 jobs</label>
+        <div class="task" id="water">
+          <input type="checkbox" id="waterCheck">
+          <label for="waterCheck">Drink at least 3 liters of water</label>
         </div>
-        <div class="task" id="task2">
-          <input type="checkbox" id="connectHR">
-          <label for="connectHR">Connected with someone new on LinkedIn</label>
-        </div>
-        <div class="task" id="task3">
-          <input type="checkbox" id="learnSkill">
-          <label for="learnSkill">Spent 1 hour learning/revising a skill</label>
-        </div>
-        <h3>YouTube Plan - SushuuVlogs</h3>
-        <div class="task" id="task4">
-          <input type="checkbox" id="ytVideo">
-          <label for="ytVideo">Posted or prepped a YouTube video</label>
-        </div>
-        <h3>Health and Wellness</h3>
-        <div class="task" id="task5">
-          <input type="checkbox" id="walk">
-          <label for="walk">Walked 30 mins</label>
-        </div>
-        <div class="task" id="task6">
-          <input type="checkbox" id="water">
-          <label for="water">Drank 3L water</label>
-        </div>
-        <div class="task" id="task7">
-          <input type="checkbox" id="stretch">
-          <label for="stretch">Stretched or danced 10 mins</label>
-        </div>
-        <div class="task" id="task8">
-          <input type="checkbox" id="sleep">
-          <label for="sleep">Slept before 11 PM</label>
+        
+        <div class="task" id="sleep">
+          <input type="checkbox" id="sleepCheck">
+          <label for="sleepCheck">Sleep before 11 PM</label>
         </div>
       </div>
     </div>
-    <br><br>
+    
+    <h2 class="collapsible-header" data-target="workoutRoutine">
+      <span><i class="fas fa-dumbbell"></i> WORKOUT ROUTINE (Before 7 AM)</span>
+      <i class="fas fa-chevron-down"></i>
+    </h2>
+    <div class="collapsible-content" id="workoutRoutine">
+      <div class="workout-content">
+        <div class="exercise-container">
+          <div class="exercise-item" id="pushupsItem">
+            <input type="checkbox" id="pushups">
+            <label for="pushups">Pushups 3x15</label>
+          </div>
+          <img src="Push-Up.gif" class="exercise-gif" alt="Pushup demonstration">
+        </div>
+        
+        <div class="exercise-container">
+          <div class="exercise-item" id="squatsItem">
+            <input type="checkbox" id="squats">
+            <label for="squats">FB-Squats 3x10</label>
+          </div>
+          <video class="exercise-gif" controls autoplay loop muted>
+            <source src="fb-squats.mp4" type="video/mp4"></video>
+        </div>
+        
+        <div class="exercise-container">
+          <div class="exercise-item" id="crunchesItem">
+            <input type="checkbox" id="crunches">
+            <label for="crunches">Crunches 3x15</label>
+          </div>
+          <img src="Weighted-Crunch.gif" class="exercise-gif" alt="Crunch demonstration">
+        </div>
+        
+        <div class="exercise-container">
+          <div class="exercise-item" id="inclinePushupsItem">
+            <input type="checkbox" id="inclinePushups">
+            <label for="inclinePushups">Incline Pushups 3x10</label>
+          </div>
+          <img src="Incline-Push-Up.gif" class="exercise-gif" alt="Incline pushup demonstration">
+        </div>
+        
+        <div class="exercise-container">
+          <div class="exercise-item" id="tricepDipsItem">
+            <input type="checkbox" id="tricepDips">
+            <label for="tricepDips">Tricep Dips 3x10</label>
+          </div>
+          <img src="Triceps-Dips-on-Floor.gif" class="exercise-gif" alt="Tricep dip demonstration">
+        </div>
+        
+        <div class="exercise-container">
+          <div class="exercise-item" id="highKneesItem">
+            <input type="checkbox" id="highKnees">
+            <label for="highKnees">High Knee Run 1 minute</label>
+          </div>
+          <img src="High-Knee-Run.gif" class="exercise-gif" alt="High knee demonstration">
+        </div>
+        
+        <div class="exercise-container">
+          <div class="exercise-item" id="plankItem">
+            <input type="checkbox" id="plank">
+            <label for="plank">Plank 1 minute</label>
+          </div>
+          <img src="body-saw-plank.gif" class="exercise-gif" alt="Plank demonstration">
+        </div>
+        
+        <div class="exercise-container">
+          <div class="exercise-item" id="postureItem">
+            <input type="checkbox" id="posture">
+            <label for="posture">Posture Setup - Wall Lock 1 minute</label>
+          </div>
+          <!-- <img src="" class="exercise-gif" alt="Posture setup itsur own thing"> -->
+        </div>
+      </div>
+    </div>
+    
+    <h2 class="collapsible-header" data-target="learning">
+      <span><i class="fas fa-brain"></i> LEARNING & DEVELOPMENT</span>
+      <i class="fas fa-chevron-down"></i>
+    </h2>
+    <div class="collapsible-content" id="learning">
+      <div class="task-list">
+        <div class="task" id="dsLearning">
+          <input type="checkbox" id="dsCheck">
+          <label for="dsCheck">Learn Data Science Fundamentals</label>
+        </div>
+        
+        <div class="task" id="powerBI">
+          <input type="checkbox" id="powerBICheck">
+          <label for="powerBICheck">Learn 1 topic in Power BI</label>
+        </div>
+        
+        <div class="task" id="tableau">
+          <input type="checkbox" id="tableauCheck">
+          <label for="tableauCheck">Learn 1 topic in Tableau</label>
+        </div>
+        
+        <div class="task" id="python">
+          <input type="checkbox" id="pythonCheck">
+          <label for="pythonCheck">Learn Python Basics for Data Science</label>
+        </div>
+      </div>
+    </div>
+    
+    <h2 class="collapsible-header" data-target="content">
+      <span><i class="fas fa-video"></i> CONTENT CREATION</span>
+      <i class="fas fa-chevron-down"></i>
+    </h2>
+    <div class="collapsible-content" id="content">
+      <div class="task-list">
+        <div class="task" id="youtube">
+          <input type="checkbox" id="youtubeCheck">
+          <label for="youtubeCheck">Post or edit a YouTube Short</label>
+        </div>
+      </div>
+    </div>
+    
     <h2 class="collapsible-header" data-target="addedWorks">
-      <i class="fas fa-chevron-down"></i> <i class="fas fa-plus-circle"></i> Added Works
+      <span><i class="fas fa-plus-circle"></i> ADDED WORKS</span>
+      <i class="fas fa-chevron-down"></i>
     </h2>
     <div class="collapsible-content" id="addedWorks">
       <div class="task-list" id="customTasksContainer"></div>
@@ -559,73 +639,151 @@
       <div class="add-task-container">
         <input type="text" class="add-task-input" id="newTaskInput" placeholder="Add a new task...">
         <button class="add-task-btn" onclick="addCustomTask()">
-          <i class="fas fa-plus"></i> Add Task
+          <i class="fas fa-plus"></i> ADD TASK
         </button>
       </div>
       <div class="task-limit" id="taskLimit">Tasks added: 0/10</div>
     </div>
     
     <div class="motivation" id="motivationQuote">
-      <p><i class="fas fa-quote-left"></i> "I am not behind, I am on my own timeline."</p>
-      <p><i class="fas fa-quote-left"></i> "Small steps every day lead to big changes."</p>
-      <p><i class="fas fa-quote-left"></i> "I'm building my dream life, one task at a time."</p>
+      <p><i class="fas fa-quote-left"></i> "Discipline is choosing between what you want now and what you want most."</p>
+      <p><i class="fas fa-quote-left"></i> "The only bad workout is the one that didn't happen."</p>
+      <p><i class="fas fa-quote-left"></i> "Success is the sum of small efforts repeated daily."</p>
     </div>
     
     <button class="quote-btn" onclick="showMotivation()">
-      <i class="fas fa-heart"></i> Need Motivation?
+      <i class="fas fa-dumbbell"></i> NEED MOTIVATION?
     </button>
-    <div class="quoteBox" id="extraQuote"></div>
     
     <button class="reset-btn" onclick="resetTasks()">
-      <i class="fas fa-sync-alt"></i> Reset for Tomorrow
+      <i class="fas fa-redo"></i> RESET FOR TOMORROW
     </button>
   </div>
 
-  <div class="sound-indicator" id="soundIndicator" title="Toggle sound">
-    <i class="fas fa-volume-up"></i>
-    <i class="fas fa-volume-mute"></i>
-  </div>
-
-  <audio id="checkSound" src="https://assets.mixkit.co/sfx/preview/mixkit-positive-interface-beep-221.mp3" preload="auto"></audio>
-  <audio id="uncheckSound" src="https://assets.mixkit.co/sfx/preview/mixkit-unlock-game-notification-253.mp3" preload="auto"></audio>
-  <audio id="completeSound" src="https://assets.mixkit.co/sfx/preview/mixkit-achievement-bell-600.mp3" preload="auto"></audio>
-
   <script>
-    // Show date
+    // Bible verses array
+    const bibleVerses = [
+    "Philippians 4:13 - I can do all things through Christ who strengthens me.",
+    "Isaiah 41:10 - Fear not, for I am with you; be not dismayed, for I am your God.",
+    "Deuteronomy 31:6 - Be strong and courageous. Do not be afraid or terrified.",
+    "Joshua 1:9 - Be strong and courageous. Do not be afraid; for the Lord your God is with you.",
+    "Psalm 23:4 - Even though I walk through the valley, I will fear no evil, for You are with me.",
+    "2 Timothy 1:7 - For God gave us a spirit not of fear but of power and love and self-control.",
+    "Isaiah 40:29 - He gives strength to the weary and increases the power of the weak.",
+    "Romans 8:31 - If God is for us, who can be against us?",
+    "Exodus 14:14 - The Lord will fight for you; you need only to be still.",
+    "Psalm 46:1 - God is our refuge and strength, a very present help in trouble.",
+    "Psalm 18:2 - The Lord is my rock, my fortress and my deliverer.",
+    "Isaiah 43:2 - When you pass through the waters, I will be with you.",
+    "Psalm 27:1 - The Lord is my light and my salvation—whom shall I fear?",
+    "1 Chronicles 28:20 - Be strong and courageous and do the work. Do not be afraid.",
+    "Nahum 1:7 - The Lord is good, a refuge in times of trouble.",
+    "Proverbs 3:5-6 - Trust in the Lord with all your heart and lean not on your own understanding.",
+    "Hebrews 13:5 - I will never leave you nor forsake you.",
+    "Psalm 31:24 - Be strong, and let your heart take courage, all you who wait for the Lord!",
+    "2 Corinthians 12:9 - My grace is sufficient for you, for my power is made perfect in weakness.",
+    "Isaiah 12:2 - Surely God is my salvation; I will trust and not be afraid.",
+    "Zephaniah 3:17 - The Lord your God is with you, the Mighty Warrior who saves.",
+    "Psalm 34:17 - The righteous cry out, and the Lord hears them.",
+    "Psalm 91:1 - Whoever dwells in the shelter of the Most High will rest in the shadow of the Almighty.",
+    "Deuteronomy 20:4 - For the Lord your God is the one who goes with you to fight for you.",
+    "1 Peter 5:7 - Cast all your anxiety on Him because He cares for you.",
+    "Lamentations 3:22-23 - His compassions never fail. They are new every morning.",
+    "Proverbs 18:10 - The name of the Lord is a strong tower; the righteous run to it and are safe.",
+    "John 16:33 - In this world you will have trouble. But take heart! I have overcome the world.",
+    "Romans 15:13 - May the God of hope fill you with all joy and peace as you trust in Him.",
+    "Isaiah 26:3 - You will keep in perfect peace those whose minds are steadfast, because they trust in you.",
+    "Psalm 55:22 - Cast your cares on the Lord and He will sustain you.",
+    "1 Corinthians 16:13 - Be on your guard; stand firm in the faith; be courageous; be strong.",
+    "2 Thessalonians 3:3 - But the Lord is faithful, and He will strengthen and protect you from the evil one.",
+    "James 1:12 - Blessed is the one who perseveres under trial.",
+    "Psalm 112:7 - He will have no fear of bad news; his heart is steadfast, trusting in the Lord.",
+    "Hebrews 4:16 - Let us then approach God's throne of grace with confidence.",
+    "Psalm 62:6 - Truly He is my rock and my salvation; He is my fortress, I will not be shaken.",
+    "Romans 8:37 - In all these things we are more than conquerors through Him who loved us.",
+    "Jeremiah 29:11 - For I know the plans I have for you, declares the Lord.",
+    "Colossians 1:11 - Being strengthened with all power according to His glorious might.",
+    "Galatians 6:9 - Let us not grow weary of doing good, for in due season we will reap.",
+    "Matthew 11:28 - Come to me, all who are weary and burdened, and I will give you rest.",
+    "John 14:27 - Peace I leave with you; my peace I give you.",
+    "Isaiah 41:13 - I am the Lord your God who takes hold of your right hand.",
+    "Psalm 9:9 - The Lord is a refuge for the oppressed, a stronghold in times of trouble.",
+    "Isaiah 30:15 - In quietness and trust is your strength.",
+    "Micah 7:7 - But as for me, I watch in hope for the Lord.",
+    "Psalm 28:7 - The Lord is my strength and my shield.",
+    "Psalm 121:1-2 - I lift up my eyes to the mountains—where does my help come from?",
+    "Luke 1:37 - For nothing is impossible with God.",
+    "Job 23:10 - But He knows the way that I take; when He has tested me, I will come forth as gold.",
+    "Psalm 37:5 - Commit your way to the Lord; trust in Him and He will act.",
+    "Mark 10:27 - With man this is impossible, but not with God.",
+    "Romans 5:3-4 - Suffering produces perseverance; perseverance, character; and character, hope.",
+    "1 John 4:4 - He who is in you is greater than he who is in the world.",
+    "Ecclesiastes 3:1 - There is a time for everything and a season for every activity under the heavens.",
+    "Psalm 16:8 - I keep my eyes always on the Lord. With Him at my right hand, I will not be shaken.",
+    "Isaiah 49:16 - See, I have engraved you on the palms of my hands.",
+    "Matthew 6:34 - Do not worry about tomorrow, for tomorrow will worry about itself.",
+    "Isaiah 40:31 - But those who hope in the Lord will renew their strength.",
+    "1 Samuel 30:6 - But David found strength in the Lord his God.",
+    "Psalm 118:6 - The Lord is with me; I will not be afraid.",
+    "Psalm 3:3 - But you, Lord, are a shield around me, my glory, the One who lifts my head high.",
+    "Isaiah 35:4 - Say to those with fearful hearts, ‘Be strong, do not fear; your God will come.’",
+    "1 John 5:4 - Everyone born of God overcomes the world.",
+    "James 4:8 - Come near to God and He will come near to you.",
+    "Psalm 94:19 - When anxiety was great within me, your consolation brought me joy.",
+    "Ephesians 6:10 - Be strong in the Lord and in His mighty power.",
+    "Revelation 21:4 - He will wipe every tear from their eyes.",
+    "Proverbs 24:16 - Though the righteous fall seven times, they rise again.",
+    "Hebrews 12:1 - Let us run with perseverance the race marked out for us.",
+    "Romans 12:12 - Be joyful in hope, patient in affliction, faithful in prayer.",
+    "Isaiah 46:4 - I have made you and I will carry you; I will sustain you and I will rescue you.",
+    "Psalm 119:105 - Your word is a lamp for my feet, a light on my path.",
+    "Psalm 34:18 - The Lord is close to the brokenhearted.",
+    "Deuteronomy 33:27 - The eternal God is your refuge, and underneath are the everlasting arms.",
+    "John 15:5 - Apart from me you can do nothing.",
+    "Romans 8:28 - And we know that in all things God works for the good of those who love Him.",
+    "Ephesians 3:20 - Now to Him who is able to do immeasurably more than all we ask or imagine.",
+    "Matthew 19:26 - With God all things are possible.",
+    "Jeremiah 17:7 - Blessed is the one who trusts in the Lord.",
+    "1 Thessalonians 5:11 - Therefore encourage one another and build each other up.",
+    "Psalm 138:3 - When I called, you answered me; you greatly emboldened me.",
+    "1 Corinthians 10:13 - He will not let you be tempted beyond what you can bear.",
+    "Isaiah 32:17 - The fruit of righteousness will be peace.",
+    "Romans 14:8 - If we live, we live for the Lord.",
+    "Titus 2:11-12 - For the grace of God has appeared that offers salvation to all people.",
+    "Psalm 19:14 - May the words of my mouth and the meditation of my heart be pleasing in your sight.",
+    "Proverbs 16:3 - Commit to the Lord whatever you do, and He will establish your plans.",
+    "Isaiah 25:1 - Lord, you are my God; I will exalt you and praise your name.",
+    "Psalm 37:23-24 - The Lord makes firm the steps of the one who delights in Him.",
+    "Zechariah 4:6 - Not by might nor by power, but by my Spirit, says the Lord Almighty.",
+    "Psalm 145:18 - The Lord is near to all who call on Him.",
+    "Isaiah 58:11 - The Lord will guide you always.",
+    "Matthew 5:14 - You are the light of the world.",
+    "Philippians 1:6 - He who began a good work in you will carry it on to completion.",
+    "Romans 10:17 - Faith comes from hearing, and hearing through the word of Christ.",
+    "Job 11:18 - You will be secure, because there is hope.",
+    "1 Peter 2:9 - You are a chosen people, a royal priesthood, a holy nation.",
+  ];
+  
+    
+    // Show date and daily bible verse
     const dateDisplay = document.getElementById('dateDisplay');
+    const bibleVerseElement = document.getElementById('bibleVerse');
     const today = new Date();
     const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
     dateDisplay.textContent = today.toLocaleDateString('en-US', options);
     
+    // Get daily verse based on date
+    const dayOfYear = Math.floor((today - new Date(today.getFullYear(), 0, 0)) / (1000 * 60 * 60 * 24));
+    const dailyVerse = bibleVerses[dayOfYear % bibleVerses.length];
+    bibleVerseElement.textContent = dailyVerse;
+    
     // DOM elements
     const tasks = document.querySelectorAll('input[type="checkbox"]');
-    const taskContainers = document.querySelectorAll('.task');
     const progressBar = document.getElementById('progressBar');
     const progressText = document.getElementById('progressText');
     const customTasksContainer = document.getElementById('customTasksContainer');
     const newTaskInput = document.getElementById('newTaskInput');
     const taskLimitDisplay = document.getElementById('taskLimit');
-    const soundIndicator = document.getElementById('soundIndicator');
-    const checkSound = document.getElementById('checkSound');
-    const uncheckSound = document.getElementById('uncheckSound');
-    const completeSound = document.getElementById('completeSound');
-    
-    // Sound control
-    let soundEnabled = true;
-    
-    soundIndicator.addEventListener('click', () => {
-      soundEnabled = !soundEnabled;
-      soundIndicator.classList.toggle('muted');
-      localStorage.setItem('soundEnabled', soundEnabled);
-    });
-    
-    // Play sound function
-    function playSound(sound) {
-      if (soundEnabled) {
-        sound.currentTime = 0;
-        sound.play().catch(e => console.log("Sound playback prevented:", e));
-      }
-    }
     
     // Collapsible sections
     const collapsibleHeaders = document.querySelectorAll('.collapsible-header');
@@ -672,14 +830,7 @@
           customTasks[index].completed = checkbox.checked;
           localStorage.setItem('customTasks', JSON.stringify(customTasks));
           updateProgress();
-          
-          if (checkbox.checked) {
-            playSound(checkSound);
-            taskElement.classList.add('completed');
-          } else {
-            playSound(uncheckSound);
-            taskElement.classList.remove('completed');
-          }
+          taskElement.classList.toggle('completed');
         });
         
         // Set initial completed state
@@ -720,10 +871,10 @@
     
     // Calculate and update progress
     function updateProgress() {
-      const defaultCompleted = document.querySelectorAll('#dailyWorks input[type="checkbox"]:checked').length;
+      const defaultCompleted = document.querySelectorAll('#health input[type="checkbox"]:checked, #learning input[type="checkbox"]:checked, #content input[type="checkbox"]:checked, #workoutRoutine input[type="checkbox"]:checked').length;
       const customCompleted = customTasks.filter(task => task.completed).length;
       const totalCompleted = defaultCompleted + customCompleted;
-      const totalTasks = tasks.length + customTasks.length;
+      const totalTasks = document.querySelectorAll('#health input[type="checkbox"], #learning input[type="checkbox"], #content input[type="checkbox"], #workoutRoutine input[type="checkbox"]').length + customTasks.length;
       const percentage = Math.round((totalCompleted / totalTasks) * 100);
       
       progressBar.style.width = `${percentage}%`;
@@ -731,11 +882,11 @@
       
       // Change color based on progress
       if (percentage < 30) {
-        progressBar.style.background = 'linear-gradient(90deg, var(--danger), var(--warning))';
+        progressBar.style.background = 'linear-gradient(90deg, var(--blood), var(--gold))';
       } else if (percentage < 70) {
-        progressBar.style.background = 'linear-gradient(90deg, var(--warning), var(--info))';
+        progressBar.style.background = 'linear-gradient(90deg, var(--gold), var(--emerald))';
       } else {
-        progressBar.style.background = 'linear-gradient(90deg, var(--primary), var(--success))';
+        progressBar.style.background = 'linear-gradient(90deg, var(--blood), var(--gold))';
       }
       
       // Celebrate when all tasks are completed
@@ -751,14 +902,11 @@
         createConfetti();
       }
       
-      // Play completion sound
-      playSound(completeSound);
-      
       // Show congratulatory message
-      const quoteBox = document.getElementById('extraQuote');
-      quoteBox.innerHTML = '<i class="fas fa-trophy"></i> Amazing! You completed all your tasks today!';
-      quoteBox.style.display = 'block';
-      quoteBox.classList.add('fade-in');
+      const quoteBox = document.createElement('div');
+      quoteBox.className = 'motivation fade-in';
+      quoteBox.innerHTML = '<p><i class="fas fa-trophy"></i> WARRIOR MODE ACTIVATED! YOU CONQUERED TODAY!</p>';
+      document.querySelector('.motivation').after(quoteBox);
     }
     
     // Create confetti particles
@@ -767,7 +915,7 @@
       confetti.className = 'confetti';
       
       // Random properties
-      const colors = ['#4361ee', '#3f37c9', '#4895ef', '#4cc9f0', '#f72585', '#f8961e'];
+      const colors = ['#e74c3c', '#f1c40f', '#3498db', '#2ecc71', '#9b59b6'];
       const randomColor = colors[Math.floor(Math.random() * colors.length)];
       const randomSize = Math.random() * 10 + 5;
       const randomLeft = Math.random() * window.innerWidth;
@@ -787,33 +935,68 @@
       }, 3000);
     }
     
-    // Initialize tasks and event listeners
-    window.onload = () => {
-      // Load sound preference
-      soundEnabled = localStorage.getItem('soundEnabled') !== 'false';
-      if (!soundEnabled) {
-        soundIndicator.classList.add('muted');
+    // Improved Motivational Quotes System
+    let currentQuote = null;
+    let quoteTimeout = null;
+    
+    function showMotivation() {
+      // Remove current quote if exists
+      if (currentQuote) {
+        clearTimeout(quoteTimeout);
+        currentQuote.remove();
       }
       
-      // Load default tasks
-      tasks.forEach((task, index) => {
-        // Load saved state
-        task.checked = localStorage.getItem(task.id) === 'true';
-        if (task.checked) {
-          taskContainers[index].classList.add('completed');
+      const extraQuotes = [
+        "<i class='fas fa-dumbbell'></i> No zero days. Every rep counts.",
+        "<i class='fas fa-brain'></i> Knowledge compounds like interest.",
+        "<i class='fas fa-fire'></i> Burn the boats - no turning back.",
+        "<i class='fas fa-mountain'></i> The obstacle is the way.",
+        "<i class='fas fa-helmet-battle'></i> Embrace the suck.",
+        "<i class='fas fa-fist-raised'></i> Discipline equals freedom.",
+        "<i class='fas fa-shield-alt'></i> Tough times create strong men."
+      ];
+      
+      currentQuote = document.createElement('div');
+      currentQuote.className = 'motivation fade-in quote-transition';
+      const random = extraQuotes[Math.floor(Math.random() * extraQuotes.length)];
+      currentQuote.innerHTML = `<p>${random}</p>`;
+      document.querySelector('.motivation').after(currentQuote);
+      
+      // Remove after 10 seconds or when button is clicked again
+      quoteTimeout = setTimeout(() => {
+        if (currentQuote) {
+          currentQuote.style.opacity = '0';
+          setTimeout(() => {
+            if (currentQuote && currentQuote.parentNode) {
+              currentQuote.remove();
+              currentQuote = null;
+            }
+          }, 300);
+        }
+      }, 10000);
+    }
+    
+    // Initialize tasks and event listeners
+    window.onload = () => {
+      // Initialize all checkboxes
+      document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+        const id = checkbox.id;
+        checkbox.checked = localStorage.getItem(id) === 'true';
+        
+        // Set completed state for parent element
+        const parent = checkbox.closest('.task, .exercise-item');
+        if (parent) {
+          parent.classList.toggle('completed', checkbox.checked);
         }
         
         // Add change event
-        task.addEventListener('change', () => {
-          localStorage.setItem(task.id, task.checked);
-          taskContainers[index].classList.toggle('completed');
-          updateProgress();
-          
-          if (task.checked) {
-            playSound(checkSound);
-          } else {
-            playSound(uncheckSound);
+        checkbox.addEventListener('change', () => {
+          localStorage.setItem(id, checkbox.checked);
+          const parent = checkbox.closest('.task, .exercise-item');
+          if (parent) {
+            parent.classList.toggle('completed');
           }
+          updateProgress();
         });
       });
       
@@ -826,9 +1009,8 @@
       // Welcome message
       setTimeout(() => {
         const welcomeMsg = document.createElement('div');
-        welcomeMsg.className = 'quoteBox fade-in';
-        welcomeMsg.innerHTML = '<i class="fas fa-smile"></i> Welcome back! Ready to make today great?';
-        welcomeMsg.style.display = 'block';
+        welcomeMsg.className = 'motivation fade-in';
+        welcomeMsg.innerHTML = '<p><i class="fas fa-fire"></i> THE GRIND STARTS NOW. MAKE TODAY COUNT!</p>';
         document.querySelector('.motivation').after(welcomeMsg);
         
         // Remove after 3 seconds
@@ -849,10 +1031,13 @@
     // Reset all tasks
     function resetTasks() {
       // Reset default tasks
-      tasks.forEach((task, index) => {
+      document.querySelectorAll('input[type="checkbox"]').forEach(task => {
         task.checked = false;
         localStorage.setItem(task.id, false);
-        taskContainers[index].classList.remove('completed');
+        const parent = task.closest('.task, .exercise-item');
+        if (parent) {
+          parent.classList.remove('completed');
+        }
       });
       
       // Reset custom tasks
@@ -865,9 +1050,8 @@
       
       // Show reset confirmation
       const confirmation = document.createElement('div');
-      confirmation.className = 'quoteBox fade-in';
-      confirmation.innerHTML = '<i class="fas fa-check-circle"></i> All tasks reset for a fresh start tomorrow!';
-      confirmation.style.display = 'block';
+      confirmation.className = 'motivation fade-in';
+      confirmation.innerHTML = '<p><i class="fas fa-check-circle"></i> SYSTEM RESET. READY FOR TOMORROW\'S BATTLE!</p>';
       document.querySelector('.motivation').after(confirmation);
       
       // Remove after 3 seconds
@@ -875,70 +1059,6 @@
         confirmation.style.opacity = '0';
         setTimeout(() => confirmation.remove(), 500);
       }, 3000);
-    }
-    
-    // Motivational quotes
-    const extraQuotes = [
-    "You're doing better than you think <i class='fas fa-fist-raised'></i>",
-    "Progress is progress, no matter how small <i class='fas fa-seedling'></i>",
-    "Take a breath. You've got this <i class='fas fa-rainbow'></i>",
-    "Even slow steps take you forward <i class='fas fa-walking'></i>",
-    "Success is built on consistent effort <i class='fas fa-lightbulb'></i>",
-    "Every expert was once a beginner <i class='fas fa-graduation-cap'></i>",
-    "You grow through what you go through <i class='fas fa-mountain'></i>",
-    "Dream big, start small, act now <i class='fas fa-rocket'></i>",
-    "Discipline beats motivation <i class='fas fa-stopwatch'></i>",
-    "The only way is through <i class='fas fa-arrow-right'></i>",
-    "Your only limit is your mind <i class='fas fa-brain'></i>",
-    "Be stronger than your excuses <i class='fas fa-dumbbell'></i>",
-    "You are your only competition <i class='fas fa-user-alt'></i>",
-    "Consistency creates miracles <i class='fas fa-magic'></i>",
-    "Focus on progress, not perfection <i class='fas fa-chart-line'></i>",
-    "It’s okay to rest, not to quit <i class='fas fa-bed'></i>",
-    "Believe in your grind <i class='fas fa-tools'></i>",
-    "Small wins lead to big victories <i class='fas fa-trophy'></i>",
-    "Trust the process <i class='fas fa-cogs'></i>",
-    "Hustle until your haters ask if you're hiring <i class='fas fa-fire'></i>",
-    "Mindset is everything <i class='fas fa-infinity'></i>",
-    "Start where you are, use what you have <i class='fas fa-box-open'></i>",
-    "Don't be afraid to fail <i class='fas fa-times-circle'></i>",
-    "Rest, reflect, restart <i class='fas fa-redo-alt'></i>",
-    "Keep going. You’re almost there <i class='fas fa-road'></i>",
-    "Discomfort means growth <i class='fas fa-expand-arrows-alt'></i>",
-    "Your dreams don’t work unless you do <i class='fas fa-briefcase'></i>",
-    "You can do hard things <i class='fas fa-mountain'></i>",
-    "Never underestimate yourself <i class='fas fa-star'></i>",
-    "Push through the hard days <i class='fas fa-heartbeat'></i>",
-    "Failure is not the opposite of success—it’s part of it <i class='fas fa-sync'></i>",
-    "One day or day one. You decide <i class='fas fa-calendar-day'></i>",
-    "Work hard in silence, let success make the noise <i class='fas fa-volume-up'></i>",
-    "Be proud of how far you've come <i class='fas fa-award'></i>",
-    "Done is better than perfect <i class='fas fa-check-circle'></i>",
-    "You’re capable of more than you know <i class='fas fa-rocket'></i>",
-    "Your future is created by what you do today <i class='fas fa-calendar-check'></i>",
-    "Energy flows where attention goes <i class='fas fa-bolt'></i>",
-    "Take action. One step at a time <i class='fas fa-shoe-prints'></i>",
-    "Never stop learning <i class='fas fa-book-reader'></i>",
-    "You got this, even if it’s hard <i class='fas fa-fire-alt'></i>",
-    "Don’t let fear stop you <i class='fas fa-shield-alt'></i>",
-    "Confidence is a habit too <i class='fas fa-user-shield'></i>",
-    "Make yourself proud <i class='fas fa-smile-beam'></i>",
-    "Let your hustle be louder than your doubts <i class='fas fa-volume-up'></i>",
-    "A little progress each day adds up <i class='fas fa-plus-square'></i>",
-    "You are not alone in this journey <i class='fas fa-hands-helping'></i>",
-    "Be the energy you want to attract <i class='fas fa-magnet'></i>",
-    "Stay focused and never give up <i class='fas fa-eye'></i>",
-    "Prove them wrong <i class='fas fa-thumbs-up'></i>",
-    "Build the life you can't wait to wake up to <i class='fas fa-sun'></i>"
-  ];
-  
-    
-    function showMotivation() {
-      const quoteBox = document.getElementById('extraQuote');
-      const random = extraQuotes[Math.floor(Math.random() * extraQuotes.length)];
-      quoteBox.innerHTML = '<i class="fas fa-magic"></i> ' + random;
-      quoteBox.style.display = 'block';
-      quoteBox.classList.add('fade-in');
     }
   </script>
 </body>
