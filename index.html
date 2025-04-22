@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<link rel="icon"href="93c749a472dcc9a17b3471c85ca1261a.jpg" type="image/x-icon">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>GROWTH TRACKER</title>
@@ -17,6 +16,9 @@
       --emerald: #2ecc71;
       --cloud: #ecf0f1;
       --midnight: #1a1a1a;
+      --python-blue: #3776ab;
+      --ml-orange: #ff7f0e;
+      --stats-purple: #9467bd;
     }
     
     * {
@@ -396,6 +398,83 @@
       font-weight: 500;
     }
     
+    /* Data Science Task Styling */
+    .python-task {
+      border-left-color: var(--python-blue);
+    }
+    
+    .stats-task {
+      border-left-color: var(--stats-purple);
+    }
+    
+    .ml-task {
+      border-left-color: var(--ml-orange);
+    }
+    
+    .analytics-task {
+      border-left-color: var(--emerald);
+    }
+    
+    .deeplearning-task {
+      border-left-color: #ff6b6b;
+    }
+    
+    .task-category {
+      font-size: 0.8rem;
+      padding: 3px 8px;
+      border-radius: 4px;
+      margin-left: 10px;
+      font-weight: normal;
+      text-transform: uppercase;
+    }
+    
+    .python-category {
+      background-color: rgba(55, 118, 171, 0.2);
+      color: #5dade2;
+    }
+    
+    .stats-category {
+      background-color: rgba(148, 103, 189, 0.2);
+      color: #bb8fce;
+    }
+    
+    .ml-category {
+      background-color: rgba(255, 127, 14, 0.2);
+      color: #f5b041;
+    }
+    
+    .analytics-category {
+      background-color: rgba(46, 204, 113, 0.2);
+      color: #7dcea0;
+    }
+    
+    .deeplearning-category {
+      background-color: rgba(255, 107, 107, 0.2);
+      color: #f1948a;
+    }
+    
+    .resource-link {
+      display: block;
+      margin-top: 8px;
+      font-size: 0.9rem;
+      color: var(--gold);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    
+    .resource-link:hover {
+      color: var(--emerald);
+      text-decoration: underline;
+    }
+    
+    .task-description {
+      display: block;
+      font-size: 0.9rem;
+      color: var(--concrete);
+      margin-top: 5px;
+      font-style: italic;
+    }
+    
     @media (max-width: 768px) {
       .container {
         padding: 20px;
@@ -415,6 +494,12 @@
       
       .add-task-container {
         flex-direction: column;
+      }
+      
+      .task-category {
+        display: block;
+        margin-left: 0;
+        margin-top: 5px;
       }
     }
     
@@ -584,35 +669,124 @@
             <input type="checkbox" id="posture">
             <label for="posture">Posture Setup - Wall Lock 1 minute</label>
           </div>
-          <!-- <img src="" class="exercise-gif" alt="Posture setup itsur own thing"> -->
         </div>
       </div>
     </div>
     
     <h2 class="collapsible-header" data-target="learning">
-      <span><i class="fas fa-brain"></i> LEARNING & DEVELOPMENT</span>
+      <span><i class="fas fa-brain"></i> DATA SCIENCE LEARNING</span>
       <i class="fas fa-chevron-down"></i>
     </h2>
     <div class="collapsible-content" id="learning">
-      <div class="task-list">
-        <div class="task" id="dsLearning">
-          <input type="checkbox" id="dsCheck">
-          <label for="dsCheck">Learn Data Science Fundamentals</label>
+      <!-- Python Section -->
+      <h3 class="collapsible-header" data-target="python">
+        <span><i class="fab fa-python"></i> PYTHON PROGRAMMING</span>
+        <i class="fas fa-chevron-down"></i>
+      </h3>
+      <div class="collapsible-content" id="python">
+        <div class="task-list">
+          <div class="task python-task">
+            <input type="checkbox" id="pythonSyntax">
+            <label for="pythonSyntax">
+              Python Syntax Review
+              <span class="task-category python-category">Python</span>
+              <span class="task-description">Variables, data types, operators</span>
+            </label>
+          </div>
+          <div class="task python-task">
+            <input type="checkbox" id="pythonFunctions">
+            <label for="pythonFunctions">
+              Functions & Modules
+              <span class="task-category python-category">Python</span>
+              <span class="task-description">Defining and using functions</span>
+            </label>
+          </div>
+          <div class="task python-task">
+            <input type="checkbox" id="pythonOOP">
+            <label for="pythonOOP">
+              OOP Concepts
+              <span class="task-category python-category">Python</span>
+              <span class="task-description">Classes, objects, inheritance</span>
+            </label>
+          </div>
         </div>
-        
-        <div class="task" id="powerBI">
-          <input type="checkbox" id="powerBICheck">
-          <label for="powerBICheck">Learn 1 topic in Power BI</label>
+      </div>
+      
+      <!-- Statistics Section -->
+      <h3 class="collapsible-header" data-target="statistics">
+        <span><i class="fas fa-chart-bar"></i> STATISTICS</span>
+        <i class="fas fa-chevron-down"></i>
+      </h3>
+      <div class="collapsible-content" id="statistics">
+        <div class="task-list">
+          <div class="task stats-task">
+            <input type="checkbox" id="statsBasics">
+            <label for="statsBasics">
+              Descriptive Statistics
+              <span class="task-category stats-category">Stats</span>
+              <span class="task-description">Mean, median, mode, variance</span>
+            </label>
+          </div>
+          <div class="task stats-task">
+            <input type="checkbox" id="probability">
+            <label for="probability">
+              Probability Basics
+              <span class="task-category stats-category">Stats</span>
+              <span class="task-description">Distributions, Bayes' theorem</span>
+            </label>
+          </div>
         </div>
-        
-        <div class="task" id="tableau">
-          <input type="checkbox" id="tableauCheck">
-          <label for="tableauCheck">Learn 1 topic in Tableau</label>
+      </div>
+      
+      <!-- Machine Learning Section -->
+      <h3 class="collapsible-header" data-target="machineLearning">
+        <span><i class="fas fa-robot"></i> MACHINE LEARNING</span>
+        <i class="fas fa-chevron-down"></i>
+      </h3>
+      <div class="collapsible-content" id="machineLearning">
+        <div class="task-list">
+          <div class="task ml-task">
+            <input type="checkbox" id="mlBasics">
+            <label for="mlBasics">
+              ML Fundamentals
+              <span class="task-category ml-category">ML</span>
+              <span class="task-description">Supervised vs unsupervised</span>
+            </label>
+          </div>
+          <div class="task ml-task">
+            <input type="checkbox" id="linearRegression">
+            <label for="linearRegression">
+              Linear Regression
+              <span class="task-category ml-category">ML</span>
+              <span class="task-description">Implementation and evaluation</span>
+            </label>
+          </div>
         </div>
-        
-        <div class="task" id="python">
-          <input type="checkbox" id="pythonCheck">
-          <label for="pythonCheck">Learn Python Basics for Data Science</label>
+      </div>
+      
+      <!-- Analytics Section -->
+      <h3 class="collapsible-header" data-target="analytics">
+        <span><i class="fas fa-chart-line"></i> ANALYTICS</span>
+        <i class="fas fa-chevron-down"></i>
+      </h3>
+      <div class="collapsible-content" id="analytics">
+        <div class="task-list">
+          <div class="task analytics-task">
+            <input type="checkbox" id="dataCleaning">
+            <label for="dataCleaning">
+              Data Cleaning
+              <span class="task-category analytics-category">Analytics</span>
+              <span class="task-description">Handling missing values</span>
+            </label>
+          </div>
+          <div class="task analytics-task">
+            <input type="checkbox" id="dataViz">
+            <label for="dataViz">
+              Data Visualization
+              <span class="task-category analytics-category">Analytics</span>
+              <span class="task-description">Matplotlib/Seaborn</span>
+            </label>
+          </div>
         </div>
       </div>
     </div>
@@ -662,109 +836,20 @@
   </div>
 
   <script>
-    // Bible verses array
+    // Bible verses array - placeholder for your actual verses
     const bibleVerses = [
-    "Philippians 4:13 - I can do all things through Christ who strengthens me.",
-    "Isaiah 41:10 - Fear not, for I am with you; be not dismayed, for I am your God.",
-    "Deuteronomy 31:6 - Be strong and courageous. Do not be afraid or terrified.",
-    "Joshua 1:9 - Be strong and courageous. Do not be afraid; for the Lord your God is with you.",
-    "Psalm 23:4 - Even though I walk through the valley, I will fear no evil, for You are with me.",
-    "2 Timothy 1:7 - For God gave us a spirit not of fear but of power and love and self-control.",
-    "Isaiah 40:29 - He gives strength to the weary and increases the power of the weak.",
-    "Romans 8:31 - If God is for us, who can be against us?",
-    "Exodus 14:14 - The Lord will fight for you; you need only to be still.",
-    "Psalm 46:1 - God is our refuge and strength, a very present help in trouble.",
-    "Psalm 18:2 - The Lord is my rock, my fortress and my deliverer.",
-    "Isaiah 43:2 - When you pass through the waters, I will be with you.",
-    "Psalm 27:1 - The Lord is my light and my salvation—whom shall I fear?",
-    "1 Chronicles 28:20 - Be strong and courageous and do the work. Do not be afraid.",
-    "Nahum 1:7 - The Lord is good, a refuge in times of trouble.",
-    "Proverbs 3:5-6 - Trust in the Lord with all your heart and lean not on your own understanding.",
-    "Hebrews 13:5 - I will never leave you nor forsake you.",
-    "Psalm 31:24 - Be strong, and let your heart take courage, all you who wait for the Lord!",
-    "2 Corinthians 12:9 - My grace is sufficient for you, for my power is made perfect in weakness.",
-    "Isaiah 12:2 - Surely God is my salvation; I will trust and not be afraid.",
-    "Zephaniah 3:17 - The Lord your God is with you, the Mighty Warrior who saves.",
-    "Psalm 34:17 - The righteous cry out, and the Lord hears them.",
-    "Psalm 91:1 - Whoever dwells in the shelter of the Most High will rest in the shadow of the Almighty.",
-    "Deuteronomy 20:4 - For the Lord your God is the one who goes with you to fight for you.",
-    "1 Peter 5:7 - Cast all your anxiety on Him because He cares for you.",
-    "Lamentations 3:22-23 - His compassions never fail. They are new every morning.",
-    "Proverbs 18:10 - The name of the Lord is a strong tower; the righteous run to it and are safe.",
-    "John 16:33 - In this world you will have trouble. But take heart! I have overcome the world.",
-    "Romans 15:13 - May the God of hope fill you with all joy and peace as you trust in Him.",
-    "Isaiah 26:3 - You will keep in perfect peace those whose minds are steadfast, because they trust in you.",
-    "Psalm 55:22 - Cast your cares on the Lord and He will sustain you.",
-    "1 Corinthians 16:13 - Be on your guard; stand firm in the faith; be courageous; be strong.",
-    "2 Thessalonians 3:3 - But the Lord is faithful, and He will strengthen and protect you from the evil one.",
-    "James 1:12 - Blessed is the one who perseveres under trial.",
-    "Psalm 112:7 - He will have no fear of bad news; his heart is steadfast, trusting in the Lord.",
-    "Hebrews 4:16 - Let us then approach God's throne of grace with confidence.",
-    "Psalm 62:6 - Truly He is my rock and my salvation; He is my fortress, I will not be shaken.",
-    "Romans 8:37 - In all these things we are more than conquerors through Him who loved us.",
-    "Jeremiah 29:11 - For I know the plans I have for you, declares the Lord.",
-    "Colossians 1:11 - Being strengthened with all power according to His glorious might.",
-    "Galatians 6:9 - Let us not grow weary of doing good, for in due season we will reap.",
-    "Matthew 11:28 - Come to me, all who are weary and burdened, and I will give you rest.",
-    "John 14:27 - Peace I leave with you; my peace I give you.",
-    "Isaiah 41:13 - I am the Lord your God who takes hold of your right hand.",
-    "Psalm 9:9 - The Lord is a refuge for the oppressed, a stronghold in times of trouble.",
-    "Isaiah 30:15 - In quietness and trust is your strength.",
-    "Micah 7:7 - But as for me, I watch in hope for the Lord.",
-    "Psalm 28:7 - The Lord is my strength and my shield.",
-    "Psalm 121:1-2 - I lift up my eyes to the mountains—where does my help come from?",
-    "Luke 1:37 - For nothing is impossible with God.",
-    "Job 23:10 - But He knows the way that I take; when He has tested me, I will come forth as gold.",
-    "Psalm 37:5 - Commit your way to the Lord; trust in Him and He will act.",
-    "Mark 10:27 - With man this is impossible, but not with God.",
-    "Romans 5:3-4 - Suffering produces perseverance; perseverance, character; and character, hope.",
-    "1 John 4:4 - He who is in you is greater than he who is in the world.",
-    "Ecclesiastes 3:1 - There is a time for everything and a season for every activity under the heavens.",
-    "Psalm 16:8 - I keep my eyes always on the Lord. With Him at my right hand, I will not be shaken.",
-    "Isaiah 49:16 - See, I have engraved you on the palms of my hands.",
-    "Matthew 6:34 - Do not worry about tomorrow, for tomorrow will worry about itself.",
-    "Isaiah 40:31 - But those who hope in the Lord will renew their strength.",
-    "1 Samuel 30:6 - But David found strength in the Lord his God.",
-    "Psalm 118:6 - The Lord is with me; I will not be afraid.",
-    "Psalm 3:3 - But you, Lord, are a shield around me, my glory, the One who lifts my head high.",
-    "Isaiah 35:4 - Say to those with fearful hearts, ‘Be strong, do not fear; your God will come.’",
-    "1 John 5:4 - Everyone born of God overcomes the world.",
-    "James 4:8 - Come near to God and He will come near to you.",
-    "Psalm 94:19 - When anxiety was great within me, your consolation brought me joy.",
-    "Ephesians 6:10 - Be strong in the Lord and in His mighty power.",
-    "Revelation 21:4 - He will wipe every tear from their eyes.",
-    "Proverbs 24:16 - Though the righteous fall seven times, they rise again.",
-    "Hebrews 12:1 - Let us run with perseverance the race marked out for us.",
-    "Romans 12:12 - Be joyful in hope, patient in affliction, faithful in prayer.",
-    "Isaiah 46:4 - I have made you and I will carry you; I will sustain you and I will rescue you.",
-    "Psalm 119:105 - Your word is a lamp for my feet, a light on my path.",
-    "Psalm 34:18 - The Lord is close to the brokenhearted.",
-    "Deuteronomy 33:27 - The eternal God is your refuge, and underneath are the everlasting arms.",
-    "John 15:5 - Apart from me you can do nothing.",
-    "Romans 8:28 - And we know that in all things God works for the good of those who love Him.",
-    "Ephesians 3:20 - Now to Him who is able to do immeasurably more than all we ask or imagine.",
-    "Matthew 19:26 - With God all things are possible.",
-    "Jeremiah 17:7 - Blessed is the one who trusts in the Lord.",
-    "1 Thessalonians 5:11 - Therefore encourage one another and build each other up.",
-    "Psalm 138:3 - When I called, you answered me; you greatly emboldened me.",
-    "1 Corinthians 10:13 - He will not let you be tempted beyond what you can bear.",
-    "Isaiah 32:17 - The fruit of righteousness will be peace.",
-    "Romans 14:8 - If we live, we live for the Lord.",
-    "Titus 2:11-12 - For the grace of God has appeared that offers salvation to all people.",
-    "Psalm 19:14 - May the words of my mouth and the meditation of my heart be pleasing in your sight.",
-    "Proverbs 16:3 - Commit to the Lord whatever you do, and He will establish your plans.",
-    "Isaiah 25:1 - Lord, you are my God; I will exalt you and praise your name.",
-    "Psalm 37:23-24 - The Lord makes firm the steps of the one who delights in Him.",
-    "Zechariah 4:6 - Not by might nor by power, but by my Spirit, says the Lord Almighty.",
-    "Psalm 145:18 - The Lord is near to all who call on Him.",
-    "Isaiah 58:11 - The Lord will guide you always.",
-    "Matthew 5:14 - You are the light of the world.",
-    "Philippians 1:6 - He who began a good work in you will carry it on to completion.",
-    "Romans 10:17 - Faith comes from hearing, and hearing through the word of Christ.",
-    "Job 11:18 - You will be secure, because there is hope.",
-    "1 Peter 2:9 - You are a chosen people, a royal priesthood, a holy nation.",
-  ];
-  
+      "John 3:16 - For God so loved the world that he gave his one and only Son...",
+      "Philippians 4:13 - I can do all things through Christ who strengthens me.",
+      "Proverbs 3:5-6 - Trust in the Lord with all your heart...",
+      "Joshua 1:9 - Be strong and courageous. Do not be afraid...",
+      "Romans 8:28 - And we know that in all things God works for the good...",
+      "Isaiah 40:31 - But those who hope in the Lord will renew their strength...",
+      "Matthew 11:28 - Come to me, all you who are weary and burdened...",
+      "Jeremiah 29:11 - For I know the plans I have for you...",
+      "Psalm 23:1 - The Lord is my shepherd, I lack nothing...",
+      "2 Timothy 1:7 - For the Spirit God gave us does not make us timid..."
+      // Add more verses as needed
+    ];
     
     // Show date and daily bible verse
     const dateDisplay = document.getElementById('dateDisplay');
@@ -775,7 +860,7 @@
     
     // Get daily verse based on date
     const dayOfYear = Math.floor((today - new Date(today.getFullYear(), 0, 0)) / (1000 * 60 * 60 * 24));
-    const dailyVerse = bibleVerses[dayOfYear % bibleVerses.length];
+    const dailyVerse = bibleVerses[Math.floor(Math.random() * bibleVerses.length)]; // Random verse for demo
     bibleVerseElement.textContent = dailyVerse;
     
     // DOM elements
@@ -914,7 +999,7 @@
     function createConfetti() {
       const confetti = document.createElement('div');
       confetti.className = 'confetti';
-      
+
       // Random properties
       const colors = ['#e74c3c', '#f1c40f', '#3498db', '#2ecc71', '#9b59b6'];
       const randomColor = colors[Math.floor(Math.random() * colors.length)];
